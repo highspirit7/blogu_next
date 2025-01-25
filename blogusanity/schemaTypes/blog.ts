@@ -1,4 +1,3 @@
-import {TypeScript} from './../node_modules/@babel/types/lib/index-legacy.d'
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
