@@ -15,6 +15,7 @@ export default defineType({
       name: 'subtitle',
       type: 'string',
       title: 'Subtitle',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'coverImage',
