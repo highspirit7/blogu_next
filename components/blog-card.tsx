@@ -16,7 +16,7 @@ const BlogCard = ({ data }: { data: Blog }) => {
       </CardHeader>
       <CardFooter className="justify-between mb-1">
         <time>{dayjs(data.date).format('LL')}</time>
-        <Link href={`/blogs/${data.slug}`}>Read More →</Link>
+        <Link href={`/blog/${data.slug}`}>Read More →</Link>
       </CardFooter>
       <hr />
     </Card>

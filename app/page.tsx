@@ -1,6 +1,6 @@
 import AuthorIntro from '@/components/author-intro';
 import { getAllBlogs } from './lib/api';
-import BlogCard from '@/components/BlogCard';
+import BlogCard from '@/components/blog-card';
 
 export default async function Home() {
   const allBlogs = await getAllBlogs();
