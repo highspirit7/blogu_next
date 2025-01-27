@@ -7,3 +7,5 @@ export interface Blog {
   subtitle: string;
   title: string;
 }
+
+export type BlogWithoutSlug = Pick<Blog, 'date' | 'title' | 'subtitle'> & { coverImageUrl: string };

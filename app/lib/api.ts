@@ -17,3 +17,15 @@ export async function getAllBlogs() {
   );
   return results;
 }
+
+export async function getBlogBySlug(slug: string) {
+  const result = await client.fetch(
+    `*[_type == "blog" && slug.current == $slug] {
+        ${blogFields}
+         content[]{..., "asset": asset->}
+      }`,
+    { slug },
+  );
+
+  return result[0];
+}
