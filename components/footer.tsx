@@ -1,17 +1,14 @@
-import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
   return (
     <footer className="text-center p-4 py-8">
       <div className="flex justify-center">
-        <a
-          href="https://github.com/highspirit7"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="icon"
-        >
-          <Image aria-hidden src="/github.svg" alt="Github icon" width={24} height={24} />
-        </a>
+        <Link href="https://github.com/highspirit7">
+          <FontAwesomeIcon icon={faGithub} width={24} height={24} />
+        </Link>
       </div>
       <div className="mt-1">
         <p>© Jiyeol Jake Lee 2025. All rights reserved.</p>
