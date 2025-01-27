@@ -4,7 +4,6 @@ import BlogCard from '@/components/BlogCard';
 
 export default async function Home() {
   const allBlogs = await getAllBlogs();
-  console.log(allBlogs);
 
   return (
     <>
