@@ -14,3 +14,11 @@ export type BlogWithoutSlug = Pick<Blog, 'date' | 'title' | 'subtitle'> & {
 };
 
 export type BlogWithContent = Blog & { content: PortableTextBlock[] };
+
+// export type CategoryTitle = 'Dev' | 'Experience' | 'Book' | 'Earth';
+
+export interface Category {
+  title: string;
+}
+
+export type CategoryWithCount = Category & { count: number };

@@ -1,7 +1,7 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from './sanity';
 import imageUrlBuilder from '@sanity/image-url';
-import { Blog, BlogWithContent } from './types';
+import { Blog, BlogWithContent, Category } from './types';
 
 const builder = imageUrlBuilder(client);
 
@@ -28,4 +28,15 @@ export async function getBlogBySlug(slug: string) {
   );
 
   return result[0];
+}
+
+export async function getAllCategories() {
+  const result: Category[] = await client.fetch(`*[_type == "category"] | {title}`);
+
+  return result;
+}
+
+export async function getAllCategoriesOfBlogs() {
+  const results = await client.fetch(`*[_type == "blog"] | {'category': category->title}`);
+  return results;
 }
