@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
 import tailwindcssAnimate from 'tailwindcss-animate';
 
 export default {
@@ -57,7 +58,15 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-pre-bg': '#2d2d2d',
+            '--tw-prose-invert-pre-bg': '#2d2d2d',
+          },
+        },
+      },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, typography],
 } satisfies Config;

@@ -6,6 +6,7 @@ import { ThemeProvider } from '../components/theme-provider';
 import Footer from '../components/footer';
 
 import './globals.css';
+import 'highlight.js/styles/base16/tomorrow-night.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

@@ -8,7 +8,7 @@ export default function BlogHeader({ title, subtitle, coverImageUrl, date }: Blo
   dayjs.extend(localizedFormat);
 
   return (
-    <div>
+    <div className="max-w-screen-md">
       <p className="text-lg mb-2">{dayjs(date).format('LL')}</p>
       <h1 className="text-3xl font-bold mb-3">{title}</h1>
       <h2 className="text-xl font-light">{subtitle}</h2>
