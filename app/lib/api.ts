@@ -1,7 +1,7 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from './sanity';
 import imageUrlBuilder from '@sanity/image-url';
-import { Blog, BlogWithContent, Category } from './types';
+import { BlogWithContent, Category } from './types';
 
 const builder = imageUrlBuilder(client);
 
@@ -11,11 +11,9 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source);
 }
 
-export async function getAllBlogs() {
-  const results: Blog[] = await client.fetch(
-    `*[_type == "blog"] | order(date desc) {${blogFields}}`,
-  );
-  return results;
+export async function getTotalOfBlogs() {
+  const total = await client.fetch(`count(*[_type == "blog"])`);
+  return total;
 }
 
 export async function getBlogBySlug(slug: string) {
@@ -38,5 +36,21 @@ export async function getAllCategories() {
 
 export async function getAllCategoriesOfBlogs() {
   const results = await client.fetch(`*[_type == "blog"] | {'category': category->title}`);
+  return results;
+}
+
+const PAGE_LIMIT = 5;
+
+export async function getPaginatedBlogs(page = 1, category = 'All') {
+  const offset = (page - 1) * PAGE_LIMIT;
+
+  const sanity_groq =
+    category === 'All'
+      ? `*[_type == "blog"] | order(date desc) {${blogFields}}[${offset}...${offset + PAGE_LIMIT}]`
+      : `*[_type == "blog" && category->title == "${category}"] | order(date desc) {${blogFields}}[${offset}...${
+          offset + PAGE_LIMIT
+        }]`;
+  const results = await client.fetch(sanity_groq);
+
   return results;
 }

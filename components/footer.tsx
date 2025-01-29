@@ -4,7 +4,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
   return (
-    <footer className="text-center p-4 py-8">
+    <footer className="text-center p-4 pb-8">
       <div className="flex justify-center">
         <Link href="https://github.com/highspirit7">
           <FontAwesomeIcon icon={faGithub} width={24} height={24} />
