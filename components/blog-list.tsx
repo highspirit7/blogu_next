@@ -34,7 +34,16 @@ export default function BlogList() {
       ))}
 
       <div ref={observerRef} className="h-10" />
-      {loading && <p>Loading more...</p>}
+      {loading && (
+        <div className="h-24 flex justify-center items-center">
+          <div
+            className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent text-primary"
+            role="status"
+          >
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
