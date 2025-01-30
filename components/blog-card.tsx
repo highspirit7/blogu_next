@@ -7,6 +7,7 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { Blog } from '@/app/lib/types';
 import { Card, CardDescription, CardTitle, CardHeader, CardFooter } from '@/components/ui/card';
 import { urlFor } from '@/app/lib/api';
+import { Button } from '@/components/ui/button';
 
 const BlogCard = ({ data }: { data: Blog }) => {
   dayjs.extend(localizedFormat);
@@ -38,7 +39,9 @@ const BlogCard = ({ data }: { data: Blog }) => {
         </CardHeader>
         <CardFooter className="justify-between mb-1">
           <time>{dayjs(data.date).format('LL')}</time>
-          <Link href={`/blog/${data.slug}`}>Read More →</Link>
+          <Button asChild variant="ghost">
+            <Link href={`/blog/${data.slug}`}>Read More →</Link>
+          </Button>
         </CardFooter>
       </div>
     </Card>
