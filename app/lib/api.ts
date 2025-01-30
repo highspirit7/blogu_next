@@ -12,8 +12,11 @@ export function urlFor(source: SanityImageSource) {
 }
 
 export async function getTotalOfBlogs(category: string) {
-  const total = await client.fetch(`count(*[_type == "blog" && category->title == "${category}"])`);
-  return total;
+  if (category === 'All') {
+    return await client.fetch(`count(*[_type == "blog"])`);
+  } else {
+    return await client.fetch(`count(*[_type == "blog" && category->title == "${category}"])`);
+  }
 }
 
 export async function getBlogBySlug(slug: string) {
