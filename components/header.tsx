@@ -12,8 +12,11 @@ const Header = () => (
       </Link>
       <div className="flex gap-1">
         <ThemeModeToggle />
+
         <Button variant="ghost" size="icon">
-          <Search />
+          <Link href="/search">
+            <Search />
+          </Link>
         </Button>
       </div>
     </div>
