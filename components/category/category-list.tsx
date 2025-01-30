@@ -20,8 +20,8 @@ const CategoryList = () => {
   }, [setAllCategories]);
 
   return (
-    <div>
-      <div className="font-bold text-xl mb-4">Categories</div>
+    <div className="mt-2 md:mt-0 mb-4 md:grid-span-1">
+      <div className="font-bold text-xl mb-4 hidden md:block">Categories</div>
       <ul className="p-0 flex justify-around md:block">
         {allCategories.map(category => (
           <CategoryItem key={category.title} title={category.title} count={category.count} />

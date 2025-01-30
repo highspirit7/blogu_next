@@ -8,11 +8,9 @@ export default function Home() {
     <>
       <AuthorIntro />
       <hr></hr>
-      <div className="p-5">
-        <div className="flex flex-wrap">
-          <div className="flex-[0_0_25%] max-w-[25%">
-            <CategoryList />
-          </div>
+      <div className="p-2 md:p-5">
+        <div className="md:grid md:grid-cols-4">
+          <CategoryList />
           <BlogList />
         </div>
       </div>

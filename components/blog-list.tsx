@@ -34,7 +34,7 @@ export default function BlogList() {
   }, [currentCategory, resetBlogs]);
 
   return (
-    <div className="flex-[0_0_75%] max-w-[75%]">
+    <div className="md:col-start-2 md:col-end-5">
       {blogs.map(blog => (
         <BlogCard data={blog} key={blog.slug} />
       ))}
