@@ -16,7 +16,10 @@ const CategoryItem = ({ title, count }: CategoryWithCount) => {
           'hover:underline hover:font-bold',
           currentCategory === title && 'font-bold underline',
         )}
-      >{`${title} (${count})`}</Link>
+      >
+        <span className="md:hidden">{`${title}(${count})`}</span>
+        <span className="hidden md:inline">{`${title} (${count})`}</span>
+      </Link>
     </li>
   );
 };
