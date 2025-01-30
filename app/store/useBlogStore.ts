@@ -9,6 +9,7 @@ interface BlogState {
   hasMore: boolean;
   loading: boolean;
   fetchBlogs: (category: string) => Promise<void>;
+  resetBlogs: () => void;
 }
 
 export const useBlogStore = create<BlogState>((set, get) => ({
@@ -25,7 +26,7 @@ export const useBlogStore = create<BlogState>((set, get) => ({
 
     try {
       const newBlogs = await getPaginatedBlogs(page, category);
-      const total = await getTotalOfBlogs();
+      const total = await getTotalOfBlogs(category);
 
       set({
         blogs: [...blogs, ...newBlogs],
@@ -38,4 +39,5 @@ export const useBlogStore = create<BlogState>((set, get) => ({
 
     set({ loading: false });
   },
+  resetBlogs: () => set({ blogs: [], hasMore: true, page: 1, loading: false }),
 }));

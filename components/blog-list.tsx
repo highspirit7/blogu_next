@@ -1,14 +1,16 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useBlogStore } from '@/app/store/useBlogStore';
-import { useCategoryStore } from '@/app/store/useCategoryStore';
 import BlogCard from '@/components/blog-card';
 import { useEffect, useRef } from 'react';
 
 export default function BlogList() {
-  const { blogs, fetchBlogs, hasMore, loading } = useBlogStore();
-  const { currentCategory } = useCategoryStore();
+  const { blogs, fetchBlogs, hasMore, loading, resetBlogs } = useBlogStore();
   const observerRef = useRef(null);
+
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get('category') ?? 'All';
 
   useEffect(() => {
     if (!observerRef.current) return;
@@ -16,7 +18,7 @@ export default function BlogList() {
     const observer = new IntersectionObserver(
       entries => {
         console.log('👀 Observer triggered!', entries[0].isIntersecting);
-        if (entries[0].isIntersecting && hasMore) {
+        if (entries[0].isIntersecting && hasMore && !loading) {
           fetchBlogs(currentCategory);
         }
       },
@@ -25,7 +27,11 @@ export default function BlogList() {
 
     observer.observe(observerRef.current);
     return () => observer.disconnect();
-  }, [hasMore, fetchBlogs, currentCategory]);
+  }, [hasMore, loading, fetchBlogs, currentCategory]);
+
+  useEffect(() => {
+    resetBlogs();
+  }, [currentCategory, resetBlogs]);
 
   return (
     <div className="flex-[0_0_75%] max-w-[75%]">

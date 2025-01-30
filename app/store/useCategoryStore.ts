@@ -2,14 +2,14 @@ import { create } from 'zustand';
 import { Category, CategoryWithCount } from '../lib/types';
 
 interface CategoryState {
-  currentCategory: string;
+  //   currentCategory: string;
   allCategories: CategoryWithCount[];
   setAllCategories: (categories: Category[], allCategoriesOfBlogs: { category: string }[]) => void;
-  selectCurrentCategory: (category: string) => void;
+  //   selectCurrentCategory: (category: string) => void;
 }
 
 export const useCategoryStore = create<CategoryState>(set => ({
-  currentCategory: 'All',
+  //   currentCategory: 'All',
   allCategories: [],
   setAllCategories: (categories: Category[], allCategoriesOfBlogs: { category: string }[]) => {
     const categoriesWithCount = categories.map(data => {
@@ -26,8 +26,8 @@ export const useCategoryStore = create<CategoryState>(set => ({
 
     set({ allCategories: categoriesWithCount });
   },
-  selectCurrentCategory: (category: string) =>
-    set({
-      currentCategory: category,
-    }),
+  //   selectCurrentCategory: (category: string) =>
+  //     set({
+  //       currentCategory: category,
+  //     }),
 }));

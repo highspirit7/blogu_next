@@ -11,8 +11,8 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source);
 }
 
-export async function getTotalOfBlogs() {
-  const total = await client.fetch(`count(*[_type == "blog"])`);
+export async function getTotalOfBlogs(category: string) {
+  const total = await client.fetch(`count(*[_type == "blog" && category->title == "${category}"])`);
   return total;
 }
 
