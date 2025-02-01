@@ -34,12 +34,13 @@ export default function BlogList() {
   }, [currentCategory, resetBlogs]);
 
   return (
-    <div className="md:col-start-2 md:col-end-5">
+    <div className="md:col-start-2 md:col-end-5 min-h-[928px]">
       {blogs.map(blog => (
         <BlogCard data={blog} key={blog.slug} />
       ))}
 
       <div ref={observerRef} className="h-10" />
+
       {loading && (
         <div className="h-24 flex justify-center items-center">
           <div
