@@ -6,7 +6,11 @@ export default function Footer() {
   return (
     <footer className="text-center p-4 pb-8">
       <div className="flex justify-center">
-        <Link href="https://github.com/highspirit7">
+        <Link
+          href="https://github.com/highspirit7"
+          target="_blank"
+          aria-label="Visit to the github page of the author for this blog"
+        >
           <FontAwesomeIcon icon={faGithub} width={24} height={24} />
         </Link>
       </div>
@@ -15,25 +19,25 @@ export default function Footer() {
         <p>
           Built with{' '}
           <span>
-            <a
+            <Link
               href="https://nextjs.org/"
               target="_blank"
-              rel="noopener noreferrer"
               className="hover:underline hover:underline-offset-4"
+              aria-label="Visit to Next.js official website"
             >
               Next.js
-            </a>
+            </Link>
           </span>{' '}
           and{' '}
           <span>
-            <a
+            <Link
               href="https://www.sanity.io"
               target="_blank"
-              rel="noopener noreferrer"
               className="hover:underline hover:underline-offset-4"
+              aria-label="Visit to Sanity official website"
             >
               Sanity
-            </a>
+            </Link>
           </span>
         </p>
       </div>

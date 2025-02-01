@@ -40,7 +40,9 @@ const BlogCard = ({ data }: { data: Blog }) => {
         <CardFooter className="justify-between mb-1">
           <time>{dayjs(data.date).format('LL')}</time>
           <Button asChild variant="ghost">
-            <Link href={`/blog/${data.slug}`}>Read More →</Link>
+            <Link href={`/blog/${data.slug}`} aria-label={`Read more about ${data.title}`}>
+              Read More →
+            </Link>
           </Button>
         </CardFooter>
       </div>

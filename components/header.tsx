@@ -15,7 +15,7 @@ const Header = () => (
 
         <Button variant="ghost" size="icon">
           <Link href="/search">
-            <Search />
+            <Search aria-label="search" />
           </Link>
         </Button>
       </div>
