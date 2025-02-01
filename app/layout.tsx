@@ -9,6 +9,7 @@ import './globals.css';
 import 'highlight.js/styles/base16/tomorrow-night.css';
 
 const notoSansKR = Noto_Sans_KR({
+  subsets: ['latin'],
   display: 'swap',
   variable: '--font-noto-sans',
 });
