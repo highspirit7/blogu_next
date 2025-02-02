@@ -10,8 +10,8 @@ export default function BlogHeader({ title, subtitle, coverImageUrl, date }: Blo
   return (
     <div className="max-w-screen-md">
       <p className="text-lg mb-2">{dayjs(date).format('LL')}</p>
-      <h1 className="text-3xl font-bold mb-3">{title}</h1>
-      <h2 className="text-xl font-light">{subtitle}</h2>
+      <h2 className="text-3xl font-bold mb-3">{title}</h2>
+      <h3 className="text-xl font-light">{subtitle}</h3>
 
       <div className="w-full mt-8">
         {coverImageUrl && (
