@@ -18,7 +18,7 @@ const BlogCard = ({ data }: { data: Blog }) => {
         <div className="hidden lg:col-span-1 lg:flex lg:items-center lg:pl-4 lg:py-4">
           <Image
             src={urlFor(data.coverImage).crop('center').fit('clip').url()}
-            alt="card_image_cap"
+            alt={`Cover image for ${data.title}`}
             width={240}
             height={180}
           />

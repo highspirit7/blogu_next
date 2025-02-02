@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import AuthorIntro from '@/components/author-intro';
 import { AUTHOR_INTRO_TEXT } from '@/app/lib/constant';
 
-test('Should render profile image correctly', () => {
+it('Should render profile image correctly', () => {
   render(<AuthorIntro introText={AUTHOR_INTRO_TEXT} />);
 
   const image = screen.getByAltText('blog_author_profile_image');
